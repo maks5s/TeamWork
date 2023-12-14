@@ -122,7 +122,7 @@ void MainWindow::on_pushButton_clicked()
 {
     int price=0;
     std::vector<std::string> serv;
-
+    //Вибір сервісу
     if(ui->radioButton->isChecked()){
         serv.push_back(servicesList[0]);
         price+=250;
