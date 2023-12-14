@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Калькулятор ЗП</string>
   </property>
   <property name="styleSheet">
    <string notr="true">font: 600 11pt &quot;Segoe UI Semibold&quot;;
@@ -61,7 +61,7 @@ background-color: rgb(226, 253, 255);</string>
      <string notr="true">border-radius: 20px;
 
 font: 600 14pt &quot;Segoe UI Semibold&quot;;
-background-color: rgb(84, 101, 255);</string>
+background-color: rgb(102, 255, 255);</string>
     </property>
     <property name="text">
      <string>Додати</string>
@@ -79,7 +79,7 @@ background-color: rgb(84, 101, 255);</string>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
 
-background-color: rgb(84, 101, 255);</string>
+background-color: rgb(102, 255, 255);</string>
     </property>
     <property name="text">
      <string>Очистити</string>
@@ -97,7 +97,7 @@ background-color: rgb(84, 101, 255);</string>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
 
-background-color: rgb(84, 101, 255);</string>
+background-color: rgb(102, 255, 255);</string>
     </property>
     <property name="text">
      <string>Видалити виділені</string>
@@ -115,7 +115,7 @@ background-color: rgb(84, 101, 255);</string>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
 
-background-color: rgb(84, 101, 255);</string>
+background-color: rgb(102, 255, 255);</string>
     </property>
     <property name="text">
      <string>Вивести З/П</string>
@@ -135,50 +135,6 @@ background-color: rgb(84, 101, 255);</string>
     </property>
     <property name="text">
      <string>Працівники</string>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame_2">
-    <property name="geometry">
-     <rect>
-      <x>950</x>
-      <y>10</y>
-      <width>211</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(0, 0, 0, 0);
-border-color: rgb(8, 8, 8);
-border: 2px solid black;
-border-radius: 10px;</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame_3">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>240</y>
-      <width>391</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(0, 0, 0, 0);
-border-color: rgb(8, 8, 8);
-border: 2px solid black;
-border-radius: 10px;</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox_2">
@@ -256,7 +212,7 @@ border-radius: 10px;</string>
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>790</x>
@@ -284,10 +240,8 @@ border-radius: 10px;</string>
       </widget>
      </item>
     </layout>
-    <zorder>label</zorder>
-    <zorder>radioButton_3</zorder>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>790</x>
@@ -312,20 +266,14 @@ border-radius: 10px;</string>
       </widget>
      </item>
     </layout>
-    <zorder>radioButton</zorder>
-    <zorder>radioButton_2</zorder>
    </widget>
-   <zorder>frame_3</zorder>
-   <zorder>frame_2</zorder>
-   <zorder>radioButton_2</zorder>
-   <zorder>label</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
    <zorder>tableWidget</zorder>
    <zorder>pushButton</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>pushButton_3</zorder>
    <zorder>pushButton_4</zorder>
-   <zorder>radioButton_3</zorder>
-   <zorder>radioButton</zorder>
    <zorder>label_2</zorder>
    <zorder>checkBox_2</zorder>
    <zorder>checkBox_3</zorder>
@@ -340,7 +288,7 @@ border-radius: 10px;</string>
      <x>0</x>
      <y>0</y>
      <width>1167</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
