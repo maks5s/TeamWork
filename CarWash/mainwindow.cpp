@@ -3,6 +3,8 @@
 #include "vector"
 #include "string"
 #include "addorder.h"
+#include <QMessageBox>
+#include <iostream>
 
 std::vector<std::string> servicesList = {"Кузов", "Кузов та салон", "Хімчистка"};
 std::vector<std::string> workersList = {"Іван", "Руслан", "Олексій", "Михайло"};
@@ -13,7 +15,7 @@ public:
     std::vector<std::string> service;
     std::vector<std::string> workers;
     std::string workTime;
-    int price;
+    double price;
 public:
     // Default constructor
     Order() : price(0) {}
@@ -55,6 +57,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget->setColumnWidth(1, 292);
     ui->tableWidget->setColumnWidth(2, 80);
     ui->tableWidget->setColumnWidth(3, 80);
+
+    QRegularExpressionValidator* timeValidator = new QRegularExpressionValidator(
+        QRegularExpression("^([01]?[0-9]|2[0-3]):[0-5][0-9]-([01]?[0-9]|2[0-3]):[0-5][0-9]$"), this);
+
+    // Встановлення валідатора для поля вводу
+    ui->lineEdit->setValidator(timeValidator);
 }
 
 MainWindow::~MainWindow()
@@ -152,13 +160,34 @@ void MainWindow::on_pushButton_clicked()
         work.push_back(workersList[3]);
 
 
+    QRegularExpressionValidator* timeValidator = new QRegularExpressionValidator(
+        QRegularExpression("^([01]?[0-9]|2[0-3]):[0-5][0-9]-([01]?[0-9]|2[0-3]):[0-5][0-9]$"), this);
+
+    QString time = ui->lineEdit->text();
+    int a=0;
+    if (timeValidator->validate(time, a) != QValidator::Acceptable) {
+        // Виведення повідомлення або виконання інших дій у випадку неправильного формату часу
+        QMessageBox::warning(this, "Помилка", "Неправильний формат часу. Використовуйте формат HH:mm-HH:mm.");
+        return;
+    }
+
     std::string tim = ui->lineEdit->text().toStdString();
 
 
 
-    Order a(serv,work,tim,price);
-    orderss.push_back(a);
-    MainWindow::on_pushButtonRefresh_clicked();
+//    Order a(serv,work,tim,price);
+//    orderss.push_back(a);
+//    MainWindow::on_pushButtonRefresh_clicked();
+    // Перевірка наявності хоча б одного вибраного radioButton та хоча б одного вибраного checkBox
+    if (serv.empty() || work.empty()) {
+        // Виведення повідомлення або виконання інших дій у випадку невибраних опцій
+        QMessageBox::warning(this, "Помилка", "Виберіть хоча б один вид послуги та хоча б одного працівника.");
+    } else {
+        // Створення об'єкта Order лише у випадку, якщо хоча б один radioButton та один checkBox були вибрані
+        Order a(serv, work, tim, price);
+        orderss.push_back(a);
+        MainWindow::on_pushButtonRefresh_clicked();
+    }
 }
 
 
@@ -192,5 +221,39 @@ void MainWindow::on_pushButton_3_clicked()
             ui->tableWidget->removeRow(row);
         }
     }
+}
+
+
+
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    QString str;
+    std::string tempstr;
+    double tempdbl;
+
+    std::map<std::string, double> salaryMap;
+
+    for (const std::string& worker : workersList) {
+        salaryMap[worker] = 0.0; // Початкова заробітна плата може бути, наприклад, 0.0
+    }
+
+    for(int i=0;i<orderss.size();++i)
+    {
+        for(int j=0;j<orderss[i].workers.size();++j)
+        {
+            salaryMap[orderss[i].workers[j]] += ( ( orderss[i].price / 2 ) / orderss[i].workers.size() );
+            //salaryMap[orderss[i].workers[j]] += ( ( orderss[i].price / 2 ) % orderss[i].workers.size() );
+        }
+    }
+
+    for (const auto& pair : salaryMap) {
+        tempstr = pair.first;
+        tempdbl = pair.second;
+        str += "Ім'я: " + QString::fromStdString(tempstr) + ", Заробітня плата: " + QString::number(tempdbl) + "\n";
+    }
+
+    QMessageBox::information(this, "ZP", str);
+
 }
 

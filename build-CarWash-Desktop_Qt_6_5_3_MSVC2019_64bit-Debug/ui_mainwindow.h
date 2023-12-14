@@ -54,6 +54,7 @@ public:
     QLineEdit *lineEdit;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -174,6 +175,9 @@ public:
         pushButton_3 = new QPushButton(centralwidget);
         pushButton_3->setObjectName("pushButton_3");
         pushButton_3->setGeometry(QRect(940, 270, 141, 61));
+        pushButton_4 = new QPushButton(centralwidget);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setGeometry(QRect(860, 390, 75, 24));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -213,6 +217,7 @@ public:
         label_3->setText(QCoreApplication::translate("MainWindow", "\320\247\320\260\321\201 \320\262\320\270\320\272\320\276\320\275\320\260\320\275\320\275\321\217", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\270\321\201\321\202\320\270\321\202\320\270", nullptr));
         pushButton_3->setText(QCoreApplication::translate("MainWindow", "\320\222\320\270\320\264\320\260\320\273\320\270\321\202\320\270 \320\262\320\270\320\264\321\226\320\273\320\265\320\275\321\226", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainWindow", "\320\262\320\270\320\262\320\265\321\201\321\202\320\270 \320\267\320\277", nullptr));
     } // retranslateUi
 
 };
