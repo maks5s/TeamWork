@@ -70,17 +70,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
-//void MainWindow::on_pushButtonAdd_clicked()
-//{
-//    addOrder window;
-//    window.setModal(true);
-//    window.exec();
-//    MainWindow::on_pushButtonRefresh_clicked();
-//}
-
-
 void MainWindow::on_pushButtonRefresh_clicked()
 {
     ui->tableWidget->setRowCount(orderss.size());
@@ -125,10 +114,7 @@ void MainWindow::on_pushButtonRefresh_clicked()
             ui->tableWidget->insertColumn(priceColumnIndex);
         ui->tableWidget->setItem(i, priceColumnIndex, new QTableWidgetItem(QString::number(ordert.price)));
     }
-
-
 }
-
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -173,11 +159,6 @@ void MainWindow::on_pushButton_clicked()
 
     std::string tim = ui->lineEdit->text().toStdString();
 
-
-
-//    Order a(serv,work,tim,price);
-//    orderss.push_back(a);
-//    MainWindow::on_pushButtonRefresh_clicked();
     // Перевірка наявності хоча б одного вибраного radioButton та хоча б одного вибраного checkBox
     if (serv.empty() || work.empty()) {
         // Виведення повідомлення або виконання інших дій у випадку невибраних опцій
@@ -190,13 +171,11 @@ void MainWindow::on_pushButton_clicked()
     }
 }
 
-
 void MainWindow::on_pushButton_2_clicked()
 {
     orderss.clear();
     MainWindow::on_pushButtonRefresh_clicked();
 }
-
 
 void MainWindow::on_pushButton_3_clicked()
 {
@@ -222,9 +201,6 @@ void MainWindow::on_pushButton_3_clicked()
         }
     }
 }
-
-
-
 
 void MainWindow::on_pushButton_4_clicked()
 {
@@ -258,5 +234,4 @@ void MainWindow::on_pushButton_4_clicked()
     outFile.close();  // Закриття файлу
 
     QMessageBox::information(this, "ZP", str);
-
 }
