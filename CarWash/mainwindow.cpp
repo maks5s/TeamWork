@@ -45,6 +45,7 @@ public:
 
 std::vector<Order> orderss;
 
+//основне вікно
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -70,6 +71,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//оновлення
 void MainWindow::on_pushButtonRefresh_clicked()
 {
     ui->tableWidget->setRowCount(orderss.size());
@@ -115,7 +117,7 @@ void MainWindow::on_pushButtonRefresh_clicked()
         ui->tableWidget->setItem(i, priceColumnIndex, new QTableWidgetItem(QString::number(ordert.price)));
     }
 }
-
+//кнопка додати
 void MainWindow::on_pushButton_clicked()
 {
     int price=0;
@@ -171,12 +173,13 @@ void MainWindow::on_pushButton_clicked()
     }
 }
 
+//очищення списку
 void MainWindow::on_pushButton_2_clicked()
 {
     orderss.clear();
     MainWindow::on_pushButtonRefresh_clicked();
 }
-
+//видалення виділених рядків
 void MainWindow::on_pushButton_3_clicked()
 {
     // Отримання вибраних рядків
@@ -201,7 +204,7 @@ void MainWindow::on_pushButton_3_clicked()
         }
     }
 }
-
+//вивести заробітню плату
 void MainWindow::on_pushButton_4_clicked()
 {
     QString str;
