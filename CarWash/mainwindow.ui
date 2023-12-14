@@ -18,19 +18,6 @@
 background-color: rgb(226, 253, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButtonAdd">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>510</y>
-      <width>281</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>.</string>
-    </property>
-   </widget>
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
@@ -71,7 +58,7 @@ background-color: rgb(226, 253, 255);</string>
      </rect>
     </property>
     <property name="text">
-     <string>Он</string>
+     <string>Оновити</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
@@ -214,30 +201,31 @@ background-color: rgb(84, 101, 255);</string>
      </item>
     </layout>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>310</y>
-      <width>72</width>
+      <x>800</x>
+      <y>270</y>
+      <width>75</width>
       <height>24</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>New Item</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>New Item</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>New Item</string>
-     </property>
-    </item>
+    <property name="text">
+     <string>Очистити</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>270</y>
+      <width>141</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Видалити виділені</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -246,7 +234,7 @@ background-color: rgb(84, 101, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>1224</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

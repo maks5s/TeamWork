@@ -64,35 +64,17 @@ MainWindow::~MainWindow()
 
 
 
-void MainWindow::on_pushButtonAdd_clicked()
-{
-    addOrder window;
-    window.setModal(true);
-    window.exec();
-    MainWindow::on_pushButtonRefresh_clicked();
-}
+//void MainWindow::on_pushButtonAdd_clicked()
+//{
+//    addOrder window;
+//    window.setModal(true);
+//    window.exec();
+//    MainWindow::on_pushButtonRefresh_clicked();
+//}
 
 
 void MainWindow::on_pushButtonRefresh_clicked()
 {
-    //    for(int i = ui->tableWidget->rowCount()-1; i>=0; --i)
-    //        ui->tableWidget->removeRow(i);
-
-    //    for(int i=0;i<orderss.size();++i){
-    //        for (int i = 0; i < orderss[i].service.size(); ++i) {
-    //            ui->tableWidget->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(orderss[i].service[i])));
-    //        }
-
-    //        for (int i = 0; i < orderss[i].workers.size(); ++i) {
-    //            ui->tableWidget->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(orderss[i].workers[i])));
-    //        }
-
-    //        for (int i = 0; i < orderss[i].workTime.size(); ++i) {
-    //            ui->tableWidget->setItem(i, 2, new QTableWidgetItem(QString::fromStdString(orderss[i].workTime)));
-    //        }
-
-    //        ui->tableWidget->setItem(0, 3, new QTableWidgetItem(QString::number(orderss[i].price)));
-    //    }
     ui->tableWidget->setRowCount(orderss.size());
     ui->tableWidget->setColumnCount(4);
 
@@ -177,5 +159,38 @@ void MainWindow::on_pushButton_clicked()
     Order a(serv,work,tim,price);
     orderss.push_back(a);
     MainWindow::on_pushButtonRefresh_clicked();
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    orderss.clear();
+    MainWindow::on_pushButtonRefresh_clicked();
+}
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    // Отримання вибраних рядків
+    QList<QTableWidgetItem *> selectedItems = ui->tableWidget->selectedItems();
+
+    // Визначення унікальних рядків, які потрібно видалити
+    QSet<int> rowsToRemove;
+    for (const QTableWidgetItem *item : selectedItems) {
+        rowsToRemove.insert(item->row());
+    }
+
+    // Видалення рядків з таблиці (починаючи з останнього, щоб уникнути зміни індексів)
+    for (int row = ui->tableWidget->rowCount() - 1; row >= 0; --row) {
+        if (rowsToRemove.contains(row)) {
+            // Видалення об'єкта з вектору (якщо він існує)
+            if (row < orderss.size()) {
+                orderss.erase(orderss.begin() + row);
+            }
+
+            // Видалення рядка з таблиціg
+            ui->tableWidget->removeRow(row);
+        }
+    }
 }
 
