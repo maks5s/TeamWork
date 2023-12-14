@@ -54,9 +54,9 @@ MainWindow::MainWindow(QWidget *parent)
     QStringList headerLabels;
     headerLabels << "Послуги" << "Працівники" << "Час" << "Вартість";
     ui->tableWidget->setHorizontalHeaderLabels(headerLabels);
-    ui->tableWidget->setColumnWidth(0, 292);
+    ui->tableWidget->setColumnWidth(0, 272);
     ui->tableWidget->setColumnWidth(1, 292);
-    ui->tableWidget->setColumnWidth(2, 80);
+    ui->tableWidget->setColumnWidth(2, 100);
     ui->tableWidget->setColumnWidth(3, 80);
 
     QRegularExpressionValidator* timeValidator = new QRegularExpressionValidator(
@@ -236,5 +236,5 @@ void MainWindow::on_pushButton_4_clicked()
 
     outFile.close();  // Закриття файлу
 
-    QMessageBox::information(this, "ZP", str);
+    QMessageBox::information(this, "Заробітня плата", str);
 }
