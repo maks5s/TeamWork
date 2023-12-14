@@ -5,6 +5,7 @@
 #include "addorder.h"
 #include <QMessageBox>
 #include <iostream>
+#include <fstream>
 
 std::vector<std::string> servicesList = {"Кузов", "Кузов та салон", "Хімчистка"};
 std::vector<std::string> workersList = {"Іван", "Руслан", "Олексій", "Михайло"};
@@ -243,17 +244,20 @@ void MainWindow::on_pushButton_4_clicked()
         for(int j=0;j<orderss[i].workers.size();++j)
         {
             salaryMap[orderss[i].workers[j]] += ( ( orderss[i].price / 2 ) / orderss[i].workers.size() );
-            //salaryMap[orderss[i].workers[j]] += ( ( orderss[i].price / 2 ) % orderss[i].workers.size() );
         }
     }
+
+    std::ofstream outFile("output.txt");  // Відкриття файлу для запису
 
     for (const auto& pair : salaryMap) {
         tempstr = pair.first;
         tempdbl = pair.second;
-        str += "Ім'я: " + QString::fromStdString(tempstr) + ", Заробітня плата: " + QString::number(tempdbl) + "\n";
+        str += "Ім'я: " + QString::fromStdString(tempstr) + ", Заробітня плата: " + QString::number(tempdbl) + " грн.\n";
+        outFile << "Ім'я: " << tempstr << ", Заробітня плата: " << tempdbl << " грн.\n";
     }
+
+    outFile.close();  // Закриття файлу
 
     QMessageBox::information(this, "ZP", str);
 
 }
-
