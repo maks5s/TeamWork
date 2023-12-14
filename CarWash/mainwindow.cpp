@@ -233,5 +233,5 @@ void MainWindow::on_pushButton_4_clicked()
 
     outFile.close();  // Закриття файлу
 
-    QMessageBox::information(this, "ZP", str);
+    QMessageBox::information(this, "Заробітня плата", str);
 }
