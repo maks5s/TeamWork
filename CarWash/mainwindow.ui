@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Калькулятор ЗП</string>
   </property>
   <property name="styleSheet">
    <string notr="true">font: 600 11pt &quot;Segoe UI Semibold&quot;;
@@ -61,7 +61,7 @@ background-color: rgb(226, 253, 255);</string>
      <string notr="true">border-radius: 20px;
 
 font: 600 14pt &quot;Segoe UI Semibold&quot;;
-background-color: rgb(84, 101, 255);</string>
+background-color: rgb(102, 255, 255);</string>
     </property>
     <property name="text">
      <string>Додати</string>
@@ -79,7 +79,7 @@ background-color: rgb(84, 101, 255);</string>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
 
-background-color: rgb(84, 101, 255);</string>
+background-color: rgb(102, 255, 255);</string>
     </property>
     <property name="text">
      <string>Очистити</string>
@@ -97,7 +97,7 @@ background-color: rgb(84, 101, 255);</string>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
 
-background-color: rgb(84, 101, 255);</string>
+background-color: rgb(102, 255, 255);</string>
     </property>
     <property name="text">
      <string>Видалити виділені</string>
@@ -115,7 +115,7 @@ background-color: rgb(84, 101, 255);</string>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
 
-background-color: rgb(84, 101, 255);</string>
+background-color: rgb(102, 255, 255);</string>
     </property>
     <property name="text">
      <string>Вивести З/П</string>
